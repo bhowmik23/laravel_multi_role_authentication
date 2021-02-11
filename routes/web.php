@@ -19,4 +19,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// admin routes
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/home', [\App\Http\Controllers\Backend\DashboardController::class, 'index'])->name('admin.dashboard');
+});
